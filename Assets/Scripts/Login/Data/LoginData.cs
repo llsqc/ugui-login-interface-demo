@@ -8,4 +8,6 @@ public class LoginData
     public string password;
     public bool isRemember;
     public bool isAutoLogin;
+
+    public int lastServerID = -1;
 }

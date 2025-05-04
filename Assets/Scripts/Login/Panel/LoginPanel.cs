@@ -38,6 +38,14 @@ public class LoginPanel : BasePanel
                 LoginMgr.Instance.LoginData.isAutoLogin = toggleAutoLogin.isOn;
                 LoginMgr.Instance.SaveLoginData();
 
+                if (LoginMgr.Instance.LoginData.lastServerID == -1)
+                {
+                }
+                else
+                {
+                    UIManager.Instance.ShowPanel<ServerPanel>();
+                }
+
                 UIManager.Instance.HidePanel<LoginPanel>();
             }
             else

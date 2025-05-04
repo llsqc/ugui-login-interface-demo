@@ -6,6 +6,7 @@ public class Main : MonoBehaviour
 {
     void Start()
     {
+        UIManager.Instance.ShowPanel<BackPanel>();
         UIManager.Instance.ShowPanel<LoginPanel>();
     }
 

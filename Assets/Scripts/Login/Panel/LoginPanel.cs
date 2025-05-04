@@ -38,7 +38,7 @@ public class LoginPanel : BasePanel
                 LoginMgr.Instance.LoginData.isAutoLogin = toggleAutoLogin.isOn;
                 LoginMgr.Instance.SaveLoginData();
 
-                if (LoginMgr.Instance.LoginData.lastServerID == -1)
+                if (LoginMgr.Instance.LoginData.lastServerID <= 0)
                 {
                     UIManager.Instance.ShowPanel<ServerListPanel>();
                 }
@@ -87,6 +87,23 @@ public class LoginPanel : BasePanel
 
         if (toggleAutoLogin.isOn)
         {
+            if (LoginMgr.Instance.CheckInfo(inputUsername.text, inputPassword.text))
+            {
+                if (LoginMgr.Instance.LoginData.lastServerID <= 0)
+                {
+                    UIManager.Instance.ShowPanel<ServerListPanel>();
+                }
+                else
+                {
+                    UIManager.Instance.ShowPanel<ServerPanel>();
+                }
+
+                UIManager.Instance.HidePanel<LoginPanel>(false);
+            }
+            else
+            {
+                UIManager.Instance.ShowPanel<TipPanel>().ChangeInfo("账号或密码错误");
+            }
         }
     }
 }

@@ -30,6 +30,13 @@ public class LoginMgr
         JsonMgr.Instance.SaveData(_loginData, "LoginData");
     }
 
+    public void ClearLoginData()
+    {
+        _loginData.lastServerID = 0;
+        _loginData.isAutoLogin = false;
+        _loginData.isRemember = false;
+    }
+
     #endregion
 
 

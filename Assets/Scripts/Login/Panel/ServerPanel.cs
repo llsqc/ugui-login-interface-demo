@@ -16,6 +16,11 @@ public class ServerPanel : BasePanel
     {
         btnBack.onClick.AddListener(() =>
         {
+            if (LoginMgr.Instance.LoginData.isAutoLogin)
+            {
+                LoginMgr.Instance.LoginData.isAutoLogin = false;
+            }
+
             UIManager.Instance.ShowPanel<LoginPanel>();
             UIManager.Instance.HidePanel<ServerPanel>();
         });
@@ -23,6 +28,9 @@ public class ServerPanel : BasePanel
         btnStart.onClick.AddListener(() =>
         {
             UIManager.Instance.HidePanel<ServerPanel>();
+            UIManager.Instance.HidePanel<BackPanel>();
+
+            LoginMgr.Instance.SaveLoginData();
             SceneManager.LoadScene("GameScene");
         });
 

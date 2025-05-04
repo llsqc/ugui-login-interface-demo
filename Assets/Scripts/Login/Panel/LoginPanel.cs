@@ -16,9 +16,35 @@ public class LoginPanel : BasePanel
 
     public override void Init()
     {
-        btnRegister.onClick.AddListener(() => { UIManager.Instance.HidePanel<LoginPanel>(); });
+        btnRegister.onClick.AddListener(() =>
+        {
+            UIManager.Instance.ShowPanel<RegisterPanel>();
+            UIManager.Instance.HidePanel<LoginPanel>();
+        });
 
-        btnSure.onClick.AddListener(() => { });
+        btnSure.onClick.AddListener(() =>
+        {
+            if (inputUsername.text.Length < 6 || inputPassword.text.Length < 6)
+            {
+                UIManager.Instance.ShowPanel<TipPanel>().ChangeInfo("账号和密码需要大于六位");
+                return;
+            }
+
+            if (LoginMgr.Instance.CheckInfo(inputUsername.text, inputPassword.text))
+            {
+                LoginMgr.Instance.LoginData.username = inputUsername.text;
+                LoginMgr.Instance.LoginData.password = inputPassword.text;
+                LoginMgr.Instance.LoginData.isRemember = toggleRemember.isOn;
+                LoginMgr.Instance.LoginData.isAutoLogin = toggleAutoLogin.isOn;
+                LoginMgr.Instance.SaveLoginData();
+
+                UIManager.Instance.HidePanel<LoginPanel>();
+            }
+            else
+            {
+                UIManager.Instance.ShowPanel<TipPanel>().ChangeInfo("账号或密码错误");
+            }
+        });
 
         toggleRemember.onValueChanged.AddListener(isOn =>
         {

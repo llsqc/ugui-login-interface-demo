@@ -6,7 +6,7 @@ public class Main : MonoBehaviour
 {
     void Start()
     {
-        UIManager.Instance.ShowPanel<TipPanel>().ChangeInfo("测试");
+        UIManager.Instance.ShowPanel<LoginPanel>();
     }
 
     void Update()

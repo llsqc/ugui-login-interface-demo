@@ -63,3 +63,6 @@ crashlytics-build.properties
 # Android 临时资源
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+/Assets/ArtRes
+/Assets/ArtRes.meta

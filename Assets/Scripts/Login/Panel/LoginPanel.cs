@@ -40,6 +40,7 @@ public class LoginPanel : BasePanel
 
                 if (LoginMgr.Instance.LoginData.lastServerID == -1)
                 {
+                    UIManager.Instance.ShowPanel<ServerListPanel>();
                 }
                 else
                 {

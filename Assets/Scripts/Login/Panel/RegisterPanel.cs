@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class RegisterPanel : BasePanel
 {
-    public Button btnRegister;
+    public Button btnCancel;
     public Button btnSure;
 
     public InputField inputUsername;
@@ -13,7 +14,7 @@ public class RegisterPanel : BasePanel
 
     public override void Init()
     {
-        btnRegister.onClick.AddListener(() =>
+        btnCancel.onClick.AddListener(() =>
         {
             UIManager.Instance.HidePanel<RegisterPanel>();
             UIManager.Instance.ShowPanel<LoginPanel>();

@@ -524,6 +524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2084055579696754783}
   - component: {fileID: 6787071540511614658}
+  - component: {fileID: 3342324040862522427}
   - component: {fileID: 2969283503467247141}
   m_Layer: 5
   m_Name: ServerPanel
@@ -564,6 +565,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8378289982132598879}
   m_CullTransparentMesh: 1
+--- !u!225 &3342324040862522427
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8378289982132598879}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &2969283503467247141
 MonoBehaviour:
   m_ObjectHideFlags: 0
